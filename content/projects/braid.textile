@@ -1,0 +1,18 @@
+--- 
+title: braid
+extension: html
+author: Cristi Balan
+filter: 
+- erb
+- textile
+categories: 
+- projects
+project: true
+layout: project
+created_at: 2008-02-03 19:26:00 +01:00
+---
+Braid is a simple tool to help track git and svn vendor branches in a git repository.
+
+The project homepage is at "http://github.com/evilchelu/braid/wikis/home":http://github.com/evilchelu/braid/wikis/home.
+
+This page is left here so there are no broken links. Please update your bookmarks and links to the github page.

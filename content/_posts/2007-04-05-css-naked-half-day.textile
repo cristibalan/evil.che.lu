@@ -1,0 +1,26 @@
+--- 
+title: CSS Naked (Half) Day
+extension: html
+directory: 2007/04/05
+tags: 
+- css
+- css naked day
+- naked
+author: Cristi Balan
+filter: 
+- erb
+- textile
+categories: 
+- development
+- home
+- standards
+blog_post: true
+filename: css-naked-half-day
+layout: post
+created_at: 2007-04-05 16:14:00 +02:00
+---
+I totally forgot it was today so I'm starting a bit late. Just assume I was on a different timezone. :)
+
+h3. What happened to the design?
+
+To learn more about why styles are disabled on this website visit the "Annual CSS Naked Day":http://naked.dustindiaz.com website for more information.

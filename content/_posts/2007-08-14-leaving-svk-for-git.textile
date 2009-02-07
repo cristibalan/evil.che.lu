@@ -1,0 +1,51 @@
+--- 
+title: Leaving svk for git
+extension: html
+directory: 2007/08/14
+tags: 
+- git
+- mephisto
+- scm
+- svk
+- svn
+author: Cristi Balan
+filter: 
+- erb
+- textile
+categories: 
+- development
+- home
+blog_post: true
+filename: leaving-svk-for-git
+layout: post
+created_at: 2007-08-14 15:01:00 +02:00
+---
+Note: If you don't care about why I moved to git and just want the practical bits, you can go directly to "Using git to track changes between svn repositories":http://evil.che.lu/2007/8/14/using-git-to-track-changes-to-mephisto
+
+h3. Â¿Por que?
+
+I often find myself having several patches to open source projects piling up in my local checkouts. It's a pain to keep them together until they get applied upstream, if that ever happens. 
+
+Being able to commit without internet access is also required. I'm not usually on a fuckin plane, but I like working from some nice places where I can't get online.
+
+So, I definitely need something else than subversion that could talk nicely with subversion, to keep me happy.
+
+Besides svn tracking and offline commits, I'd like to have piston like functionality out of the box, but I can live without that.
+
+h3. svk
+
+A while ago I started to use svk to mirror some of the svn repositories I work with on a regular basis. I based my setup on "octopod's svk tutorial":http://octopod.info/2006/8/19/managing-multiple-local-mephisto-repos-with-svk. 
+
+I didn't quite enjoy the smerge and creating of a bunch of directories. Each time I wanted to add a new project, or even worse, a new project for a new mirrored repository I had to be very careful about a bunch of things. Not fun!
+
+I also tried to import a local branch of a svn repository in a directory of a local branch of another one and tried to push that to my svn own repository. FAIL! "thingy is from another repository". Bummer...
+
+That last paragraph might not have made too much sense if you're not familiar with octopod's tutorial and svk so feel free to ignore it.
+
+h3. git
+
+Im not a mad brancher so I mainly used svk as a fancy svn client. Also, my svk setup is a bit of a mess. It was easier for me to ignore the svk repository, recreate mirrors and reapply some patches in git. 
+
+However, if you want to import your whole svk into git, have a look at the "introduction to git-svn for Subversion/svk users and deserters":http://utsl.gen.nz/talks/git-svn/intro.html#howto-fetch-convert
+
+In the next article I'll show how to do a setup similar to the one in octopod's tutorial. Go to "Using git to track changes between svn repositories":http://evil.che.lu/2007/8/14/using-git-to-track-changes-to-mephisto

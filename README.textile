@@ -1,0 +1,7 @@
+h1. source for evil.che.lu
+
+This is the source for "evil.che.lu":http://evil.che.lu. Running on webby.
+
+  webby blog:post "blah" # or just copy an existing file
+  webby blog:create_indexes && webby autobuild --trace
+  webby blog:create_indexes && webby build --trace

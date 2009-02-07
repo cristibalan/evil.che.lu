@@ -1,0 +1,16 @@
+--- 
+title: giston
+extension: html
+author: Cristi Balan
+filter: 
+- erb
+- textile
+categories: 
+- projects
+#project: true
+layout: project
+created_at: 2008-01-18 18:48:00 +01:00
+---
+*Giston has been defenestrated in favour of braid*
+
+Check out the "braid project page":http://evil.che.lu/projects/braid

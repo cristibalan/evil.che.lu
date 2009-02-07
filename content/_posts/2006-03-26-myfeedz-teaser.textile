@@ -1,0 +1,23 @@
+--- 
+title: myFeedz teaser
+extension: html
+directory: 2006/03/26
+tags: 
+- myfeedz
+- private beta
+- social newspaper
+author: Cristi Balan
+filter: 
+- erb
+- textile
+categories: 
+- happenings
+- home
+blog_post: true
+filename: myfeedz-teaser
+layout: post
+created_at: 2006-03-26 22:14:00 +02:00
+---
+The thing that's been keeping me busy lately is almost ready to be let loose out in the world. "myFeedz":http://myfeedz.com/ is a kind of feed reader/meme tracker thingy that learns from your reading habits and those of people with similar interests and creates your personal view of the current news.
+
+The core functionality is now in place and we're just polishing things up a bit to prepare for the private beta. If you're interested in being part of it, put your email address in the little box over at "myFeedz":http://myfeedz.com/ and we'll let you know as soon as you can play with it.

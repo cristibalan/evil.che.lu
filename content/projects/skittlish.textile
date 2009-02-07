@@ -1,0 +1,36 @@
+--- 
+title: skittlish
+extension: html
+tags: 
+- dc
+- evilchelu
+- mephisto
+- skittlish
+- theme
+author: Cristi Balan
+filter: 
+- erb
+- textile
+categories: 
+- projects
+project: true
+layout: project
+created_at: 2006-08-15 01:36:00 +02:00
+---
+Skittlish is a theme for the famous "mephisto blog engine":http://mephistoblog.com/. It is based on a design by "Damien Tanner":http://iamrice.org/ and was made into code by "Cristi Balan":http://evil.che.lu/.
+
+h3. skittlish 0.4 (07 apr 2007)
+
+Download "skittlish-0.4.zip":http://evil.che.lu/assets/2007/4/6/skittlish-0.4.zip
+
+h3. skittlish svn repository
+
+*Note: If you checked out skittlish before 20 apr 2007, you need to checkout again from this new location. Sorry.*
+
+The latest version of skittlish is always in scary svn land. Check it out:
+
+<pre>
+
+svn co http://evilchelu.googlecode.com/svn/skittlish/trunk /path/to/mephisto/themes/site-1/skittlish
+
+</pre>

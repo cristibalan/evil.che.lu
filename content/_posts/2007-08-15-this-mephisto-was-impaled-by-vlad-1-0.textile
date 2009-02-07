@@ -1,0 +1,45 @@
+--- 
+title: This mephisto was impaled by vlad 1.0
+extension: html
+directory: 2007/08/15
+tags: 
+- capistrano
+- vlad
+author: Cristi Balan
+filter: 
+- erb
+- textile
+categories: 
+- development
+- home
+blog_post: true
+filename: this-mephisto-was-impaled-by-vlad-1-0
+layout: post
+created_at: 2007-08-15 00:10:00 +02:00
+---
+p(imageleft). !/assets/vladtepes.jpg(Vlad Tepes)!
+
+The ruby hit squad just released "vlad 1.0":http://rubyhitsquad.com/Vlad_the_Deployer.html, a merciless deployment tool, very similar to capistrano. I just new I had to install it when I saw the name, with me being Romanian and all. Thanks for not calling it Dracula!
+
+As opposed to capistrano, vlad doesn't come with it's own runner. You have to manually require it in your Rakefile and it'll add a bunch of deployment related tasks in the vlad namespace. It also has very few dependencies and uses your current ssh settings to connect.
+
+Coming from capistrano, there are a few things you have to do manually for now to get a similar setup.
+
+Vlad doesn't have after or before tasks (yet), so you'll have to add new tasks and wrap existing ones to get the same functionality:
+
+    desc "chelu's setup"
+    remote_task :mysetup, :roles => :app do
+      Rake::Task["vlad:setup"].invoke
+      run "mkdir -p #{shared_path}/assets"
+    end
+
+It also doesn't define a deploy task, to allow people to stick things together the way they need it. There's a "sample task in vlad's bugtracker":http://rubyforge.org/tracker/index.php?func=detail&aid=13047&group_id=4213&atid=16258 if you need an idea.
+
+It also assumes you're using mongrel_cluster as your server if you use the built in start, stop, restart tasks. I use monit so I just added my own and ignored the default ones.
+
+So, it does the same things as capistrano and I just tried it without a real goal. But I was able to look in the source and find answers almost instantly. Simpler code is always nice.
+
+Even if that doesn't matter to you, It may be worth it to use just for the sheer coolness of being able to put in your resume: 
+"used vlad the impaler to deploy applications using sphincter". :)
+
+ps: There's a bug with running sudo commands in 1.0, so you might want to wait for a new release if you don't want to manually authenticate with sudo.
