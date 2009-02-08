@@ -13,9 +13,9 @@ created_at: 2007-12-09 15:09:00 +01:00
   .article
     %h2.title= link_to page.title, page.url
     %p.meta
-      scris de
+      written by
       = page.author
-      pe
+      on
       = page.created_at.strftime('%Y-%m-%d')
     .body
       = render(page)
