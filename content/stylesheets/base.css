@@ -613,3 +613,8 @@ body.violet #sidebar        { background-image: url(/images/x_violet_sidebar_top
 body.violet #sidebar .short { background-image: url(/images/x_violet_boxy_short.gif); }
 body.violet #sidebar .tall  { background-image: url(/images/x_violet_boxy_tall.gif); }
 
+/* hacks */
+/* fuck disqus */
+.dsq-popupdiv {
+  margin-left: -10000px !important;
+}
