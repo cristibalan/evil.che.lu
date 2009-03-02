@@ -13,7 +13,6 @@ module Webby::Helpers
       url << "#" << anchor if anchor
 
       # hack hack
-      p "!!!!!!!!!"
       url.gsub!(/\.html$/, "") if url[0].chr == "/"
       return url
     end
