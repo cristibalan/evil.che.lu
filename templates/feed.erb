@@ -11,7 +11,7 @@
 
   <id><%= @settings[:url] %>/</id>
   <% last_post = @posts.max{ |p1, p2| p1[:written_on] <=> p2[:written_on] } %>
-  <updated><%= last_post[:updated_on] %></updated>
+  <updated><%= last_post[:updated_on] if last_post %></updated>
   <% @posts.reverse[0..14].each do |post|%>
     <% url = "#{@settings[:url]}#{post[:url]}" %>
     <entry>

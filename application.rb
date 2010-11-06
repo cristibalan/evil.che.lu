@@ -53,7 +53,8 @@ class Application < FluffyBarbarian::Application
              render "stylesheets/#{name}", :layout => false
 
            when "/feed.atom"
-             @posts = @index.all.each do |post|
+             @posts = @posts.find_all { |p| p[:happened_on] > "2010-10-10" }
+             @posts = @posts.each do |post|
                post[:content] ||= render(:content => post[:path])
              end
 
