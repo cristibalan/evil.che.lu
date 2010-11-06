@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><%=h @settings[:title] %></title>
+  <subtitle></subtitle>
+  <link href="<%= @settings[:feed] %>" rel="self" type="application/atom+xml"/>
+  <link href="<%= @settings[:url] %>" />
+  <author>
+    <name>Cristi Balan</name>
+  </author>
+
+  <id><%= @settings[:url] %>/</id>
+  <% last_post = @posts.max{ |p1, p2| p1[:written_on] <=> p2[:written_on] } %>
+  <updated><%= last_post[:updated_on] %></updated>
+  <% @posts.reverse[0..14].each do |post|%>
+    <% url = "#{@settings[:url]}#{post[:url]}" %>
+    <entry>
+      <title><%=h post[:title] %></title>
+      <link href="<%= url %>" />
+      <id>tag:<%= "#{@settings[:host]},#{post[:written_on]}:#{post[:url]}" %></id>
+      <updated><%= post[:updated_on] %></updated>
+      <content type="html"><%= h(post[:content]) %></content>
+    </entry>
+  <% end%>
+</feed>

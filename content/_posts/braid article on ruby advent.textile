@@ -1,0 +1,3 @@
+I just wrote an article for the "ruby advent 2008":http://advent2008.hackruby.com/ series.
+
+It has more introductory details about vendoring and why you should do it. So, if you were not sure whether to braid or not, check out the "Easy Dependency Management for Git with Braid":http://advent2008.hackruby.com/past/2008/12/20/easy_dependency_management_for_git_with_braid/ article.

@@ -1,0 +1,5 @@
+Braid is a simple tool to help track git and svn vendor branches in a git repository.
+
+The project homepage is at [http://github.com/evilchelu/braid/wikis/home](http://github.com/evilchelu/braid/wikis/home).
+
+This page is left here so there are no broken links. Please update your bookmarks and links to the github page.

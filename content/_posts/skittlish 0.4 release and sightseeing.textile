@@ -1,0 +1,5 @@
+Hey, long time no zip!
+
+Since the last release, mephisto's interface got a -bit- lot more stable and I also got around to fixing some ugly IE bugs. So, head over to the "skittlish project page":http://evil.che.lu/projects/skittlish and grab the latest version or just svn up if you're living dangerously.
+
+In other news, Amos Griffin did a smashing job by porting "skittlish to wordpress":http://journal.barleyhut.com/the-skittlish-theme-for-wordpress/ (yay!) and Steve Ehrenberg made a "trac theme based on skittlish":http://blog.dnite.org/2007/3/10/new-trac-theme. Great job, guys!

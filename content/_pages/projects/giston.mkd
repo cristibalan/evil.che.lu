@@ -1,0 +1,3 @@
+*Giston has been defenestrated in favour of braid*
+
+Check out the [braid project page](/projects/braid)

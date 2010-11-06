@@ -1,0 +1,14 @@
+I updated "skittlish":http://evil.che.lu/projects/skittlish to work with the latest mephisto (currently r2293).
+
+There are no guarantees regarding how this works with the experimental mephisto theme management interface. If you don't like to fiddle, I'll zip up a new version of skittlish once mephisto 0.7 is released.
+
+_(cue scary music)_
+h1. BOO!!!
+
+"Not scared?":http://mephistoblog.com/2006/9/20/scare-tactics Okay, you can grab it from svn:
+
+<pre>
+
+svn co svn://evil.che.lu/evilchelu/svn/projects/themes/skittlish/trunk /blah/blah//themes/site-1/other/skittlish
+
+</pre>

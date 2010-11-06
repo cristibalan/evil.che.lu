@@ -1,0 +1,7 @@
+For the last few months I have been working on various projects with the nice guys at "New Bamboo":http://new-bamboo.co.uk/. Most of the time I worked on turning PSD files into semantic XHTML and CSS. I even got occasional ruby projects but these were usually short because I used to have a regular job back then.
+
+All the time, I thought both Damien and Max were great guys to work with. As it happens, they think I'm pretty decent too. So, without too much debate, we worked out the details and I'm glad to announce that I'll be joining New Bamboo as of, err, now. I'll be working from home and continue to freelance, but now I'll also have a great team to back me up. 
+
+This is a great opportunity for me to get into bigger rails and ruby projects that I would not be able to tackle on my own. I'll also have a bigger playground for my client side skills.
+
+Exciting times lay ahead, wish me luck!

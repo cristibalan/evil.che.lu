@@ -1,0 +1,9 @@
+h2. Update
+
+*This article is outdated: Please read about "braid 0.3.0":http://evil.che.lu/2008/2/13/ann-braid-0-3-0*
+
+Apparently, quite a few people got interested in giston lately. I am actually in the middle of rewriting some of the ugliness and didn't bother to let people know about it. My bad.
+
+I'll be committing some changes on Friday noon-ish gmt so please don't patch against the current version as things most likely won't apply anymore. If you already have a patch, please email it to me and I'll try to apply your changes manually.
+
+Sorry about the lack of transparency, I thought noone was using it, heh :).

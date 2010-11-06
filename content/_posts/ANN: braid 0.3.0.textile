@@ -1,0 +1,56 @@
+h2. Update
+
+"braid 0.3.2":http://evil.che.lu/2008/2/14/ann-braid-0-3-2 was released to fix some major bugs
+
+"Braid":http://evil.che.lu/projects/braid is a simple tool to help track svn and git vendor branches in your git repository. It used to be called giston and was more hackish.
+
+There is no direct way to update your giston mirrors to braid mirros, sorry :(. You know, life on the edge and stuff, heh.
+
+h2. Get it
+
+ git clone git://github.com/evilchelu/braid.git
+ cd braid
+ rake install_gem
+ braid --help # see usage
+
+h2. giston 0.3.0 changes from giston 0.2.0
+
+* using YAML::Store to save config
+* using git merge-subtree with git and git svn remotes to track repositories
+
+Rubyforge project on the way. I'll update this page when it's ready.
+
+Have fun and please let me know of any bugs, complaints, ideas or patches you might have.
+
+h2. Usage
+
+From the README:
+
+create a git repo
+
+ git init moo
+ cd moo
+
+ideally you will also do these, but they are just good practices
+
+ git config --global merge.summary true
+ git checkout -b localwork
+
+adding mirrors
+
+ braid add git://blah
+ braid add svn://muh
+ gitk braid/track
+ git merge braid/track
+
+updating mirrors
+
+ braid update muh
+ braid update
+ git merge braid/track
+
+removing mirrors
+
+ braid remove blah
+ braid remove muh
+ git merge braid/track

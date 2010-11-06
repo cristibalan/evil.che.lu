@@ -1,0 +1,5 @@
+I totally forgot it was today so I'm starting a bit late. Just assume I was on a different timezone. :)
+
+h2. What happened to the design?
+
+To learn more about why styles are disabled on this website visit the "Annual CSS Naked Day":http://naked.dustindiaz.com website for more information.

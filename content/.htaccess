@@ -1,9 +1,0 @@
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.*)$ $1.html
-
-# feedburner redirect for the atom feed
-# RewriteCond %{HTTP_USER_AGENT} !FeedBurner
-# RewriteCond %{HTTP_HOST} somesite.com [NC]
-# RewriteRule ^/feed/atom\.xml$ http://feeds.feedburner.com/evilchelu [R=301,L]

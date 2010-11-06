@@ -1,0 +1,9 @@
+Skittlish is a theme originally written for the famous (and now defunct) [mephisto blog engine](https://github.com/technoweenie/mephisto). It is based on a design by [Damien Tanner](http://iamrice.org/) and was made into code by [Cristi Balan](http://evil.che.lu/).
+
+It hasn't been updated since about 2007 but you can still [get it from github](https://github.com/evilchelu/skittlish)
+
+h2. wordpress version
+
+Amos Griffin did a smashing job by porting [skittlish to wordpress](http://journal.barleyhut.com/the-skittlish-theme-for-wordpress/).
+
+I have no connection with this port and no clue about wordpress so I can't help you if you need something changed. Please google around for a solution or contact the author of the port.

@@ -1,0 +1,12 @@
+Finally, you can get your hands on this lovely theme based on dc's design and use it in your mephisto powered weblogs. Yay!
+
+Skittlish assumes certain things about how you have your site structured, but you can easily hack around them if they don't fit well with your layout. Now, some quick notes about skittlish 0.2:
+
+* uses the include liquid tag to have DRY templates so that means you need at least r2148 of mephisto
+* allows changing of the default color scheme and fixed/fliuid layout by changing the class of the body tag
+* has a simple option changer that saves the selection in a cookie so people can customize the way they see your site
+* has a builtin help system! (actually, just some notes in the layout.liquid template)
+
+Go to the "Skittlish project page":/projects/skittlish to download the latest version
+
+Let me know if you use it and I hope you don't run into any (major) problems.

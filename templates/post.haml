@@ -1,0 +1,8 @@
+.article
+  %h2.title= link_to @post[:title], @post[:url]
+  %p.meta
+    written by Cristi Balan
+    on
+    = @post[:written_on]
+  .body
+    = @post[:content]

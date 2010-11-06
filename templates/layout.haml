@@ -1,0 +1,128 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
+    %title= @title
+
+    %link{ :rel => "openid.server", :href => "http://openid.claimid.com/server" }
+    %link{ :rel => "openid.delegate", :href =>"http://openid.claimid.com/evilchelu" }
+
+    %link{ :title => 'evil.che.lu feed', :href => @settings[:feed], :type => 'application/atom+xml', :rel => 'alternate' }
+
+    %link{ :href => '/stylesheets/base.css', :media => 'screen', :type => 'text/css', :rel => 'stylesheet' }
+    /[if IE]
+      %link{ :href => '/stylesheets/base_ie.css', :media => 'screen', :type => 'text/css', :rel => 'stylesheet' }
+
+    %script{ :src => '/javascripts/app.js', :type => 'text/javascript' }
+
+  %body.che.fixed.blue
+    %script{ :type => "text/javascript" }
+      loadPreferences()
+    #wrapper
+      #header.clearfix
+        #title.clearfix
+          %h1= link_to "evil.che.lu", "/"
+        %h2 Sections
+        %ul#menu
+          %li{ :class => (@slug == "/" ? "selected" : "")}
+            = link_to "home", "/"
+          - %w(about projects).each do |menu_item|
+            %li{ :class => (@slug == menu_item ? "selected" : "")}
+              = link_to menu_item, "/#{menu_item}"
+      #contentwrapper.clearfix
+        #content
+          #innerwrapper
+            = yield
+
+        #sidebar
+          .boxy.short
+            %h3 About
+            %p I'm Cristi Balan, a freelance web developer currently living in a cave in Granada, Spain.
+            %p I like CSS, semantic markup, unobtrusive javascript, Ruby on Rails and good coding practices.
+            %p== Currently, I am available for freelance work. You can reach me at #{link_to("evil@che.lu", "mailto:evil@che.lu")}.
+            %p#subscribe
+              %a.feed{ :href => @settings[:feed] } subscribe to my feed
+          .boxy.tall.minor
+            %h3 Archives
+            %ul
+              - @posts.reverse.each do |post|
+                %li
+                  = link_to post[:title], post[:url]
+                  %em== (#{post[:happened_on]})
+
+          .boxy.tall
+            %h3 People
+            %dl
+              %dt Local peeps
+              %dd
+                %a{ :href => "http://tase.ro/" } Adrian Tanase
+              %dd
+                %a{ :href => "http://www.toth.ro/" } Gabi Toth
+              %dd
+                %a{ :href => "http://mordax.ro/" } Marius Zaharia
+              %dt World wide posse
+              %dd
+                %a{ :href => "http://iamrice.org/" } Damien Tanner
+              %dd
+                %a{ :href => "http://www.fearoffish.co.uk/" } Jamie van Dyke
+              %dd
+                %a{ :href => "http://technomancy.us/" } Phil Hagelberg
+              %dd
+                %a{ :href => "http://blog.caboo.se/" } caboo.se
+
+      #options
+        %h2
+          Options:
+        %h3
+          Size
+        %ul#option_size
+          %li#option_size_fixed.fixed
+            %a
+              %span
+                fixed
+          %li#option_size_fluid.fluid
+            %a
+              %span
+                fluid
+        %h3
+          Colors
+        %ul#option_color
+          %li#option_color_orange.orange
+            %a
+              %span
+                orange
+          %li#option_color_blue.blue
+            %a
+              %span
+                blue
+          %li#option_color_green.green
+            %a
+              %span
+                green
+          %li#option_color_pink.pink
+            %a
+              %span
+                pink
+          %li#option_color_cyan.cyan
+            %a
+              %span
+                cyan
+          %li#option_color_red.red
+            %a
+              %span
+                red
+          %li#option_color_violet.violet
+            %a
+              %span
+                violet
+
+      #footer
+        %p
+          Copyright &copy; 2006-2009, Cristi Balan.
+          == Valid #{link_to("XHTML", "http://evil.che.lu/projects/skittlish")} and #{link_to("CSS", "http://jigsaw.w3.org/css-validator/check/referer")}.
+        %p== Using #{link_to("skittlish", "http://evil.che.lu/projects/skittlish")} on #{link_to("webby", "http://webby.rubyforge.org/")}.
+    - if production?
+      %script{ :src => "http://www.google-analytics.com/urchin.js", :type => "text/javascript" }
+      %script{ :type => "text/javascript" }
+        _uacct = "UA-563854-1";
+        urchinTracker();

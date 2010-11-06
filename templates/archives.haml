@@ -1,0 +1,13 @@
+-# WTF@sorting?! commenting out for now
+-# - @posts.group_by{|post| post[:happened_on].split('-')[0]}.each do |year, year_posts|
+  -# - year_posts.group_by{|post| post[:happened_on].split('-')[1]}.each do |month, posts|
+  -# - @posts.group_by{|p| p.created_at.strftime('%Y')}.each do |year, year_posts|
+    -# - year_posts.group_by{|p| p.created_at.strftime('%B')}.each do |month, posts|
+    -# %h2== #{month} #{year}
+%ul.list
+  - @posts.reverse.each do |post|
+    %li
+      - if post[:categories].include? "intalniri"
+        [!]
+      = link_to post[:title], post[:url]
+      %em== (#{post[:happened_on]})

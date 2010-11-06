@@ -1,0 +1,139 @@
+This article was written for the "ruby advent 2008, day 20":http://advent2008.hackruby.com/past/2008/12/20/easy_dependency_management_for_git_with_braid/. I'm reposting it here so I have a backup under my own roof.
+
+If you already know about vendoring and why it's good for you, feel free to skip directly directly to the "braid example":#.
+
+If you still need convincing, read on.
+
+h2. Vendoring theory
+
+It's a well-known fact that every piece of code that you write should be version controlled.
+
+Not reinventing the wheel is also a good idea that will keep you happy. In practice, not reinventing the wheel means trying to use libraries or plugins written by other happy open source developers. This means that you now have external dependencies. 
+
+Generally, you want your project to be as stable as possible. However, you will also want to update your external dependencies quite often to make use of their new and shiny features.
+
+The *simplest way is to just make a note in the documentation* and hope that all our users and contributors will setup things correctly. But this is an error prone procedure and it might be too much work for some to the extent that they might not bother.
+
+Still, if all that you require from your external dependencies is an official release, most ruby libraries are released as a gem so, you could just use rubygems and be done with it.
+
+Using rubygems is all fine *until you need to make some custom changes* to a library. These might be some changes you are not ready to submit to the original projects, or even changes that you submitted but have not yet been integrated. Or, maybe they don't even make sense for anyone else but you.
+
+Due to ruby's nature, in some cases, you can avoid having all of the external code in your repository with some clever monkey-patching. But, if you have changes that are not trivial, sooner or later, you will need to *bundle the external dependency* with your project.
+
+A *simple and quick idea* is to just take all the source code of your dependency form it's repository, *copy and dump* it in a directory, remove the .git or .svn directories and simply commit it. This is a good enough starting point and *it's exactly what script/plugin does* in rails. You are now free to tweak it to your heart's content and then commit it to your own project's repository.
+
+Let's say that you now vendored a few libraries and happily hacked on them and your project for a while. Suddenly, a security flaw is discovered in one of the external libraries. It's authors are quick to provide a fix and you are keen to have it.
+
+So, if you used the "copy and dump" approach, you're kinda screwed, since you need both the security fix and your magic tweaks. You have to either *manually merge the changes*, *discard your changes* and start from zero with the latest version or, *ignore the security issue* altogether. I'm not sure which one is scarier :).
+
+Let's just assume that you definitely need both the security fix and all your custom changes. Basically, to continue, you have two options. You could either *apply the new fixes on top of your code* or you could *reapply your fixes on top of the new library code*.
+
+* Applying new fixes on top of your code
+
+ All you need is a patchfile from the point where you vendored the dependency up to now. You'll most likely have to create it by yourself. Then, you can try applying it on top of your code. If you want to go this route, I hope you noted that initial revision down somewhere or else, you'd have to guess and actually be lucky.
+
+* Applying your custom changes on top of the most recent version
+
+ All you need for this is all of your custom changes. Then, you can simply remove your vendored code, "copy and dump" the new one in, commit, and reapply your changes. If you want to go this route, I hope you kept all your commits to the vendored code in separate patchfiles and are happy manually applying patches.
+
+h2. Vendor everything
+
+Besides needing major custom changes, there are two other major reasons you might want to bundle your external dependencies.
+
+One is that if you are using a new library that's in active development, you will most likely need to update with bugfixes quite often.
+
+The other is that if you are developing a web application that needs to be deployed, you will not want to depend on external repositories being down and preventing your deploy.
+
+So, most of the time you will want to bundle external dependencies anyway, regardless of any custom changes you may or may not have.
+
+h2. Theory conclusion
+
+If you made it this far, you should have a pretty good picture about your vendoring needs. I'll just make this easy to skim by recapping things.
+
+h2. You don't need vendoring if:
+
+* You are writing *a library that depends on another library*. Just use rubygems. Examples of this are most gems like capistrano, braid, haml, etc.
+* You are writing *a library that depends on another library and needs minor tweaks*. Just use rubygems and a small monkey-patch.
+* You are writing *an application that will be deployed and you don't care if you can't deploy* :). Example: websites that fail to deploy.
+
+h2. You need vendoring if:
+
+* You need *close integration with an external library*. Example: gitnub uses grit internally. So, it's bundled.
+* You need to *update to new releases of the external library* relatively often. Example: all rails applications that use plugins such as will_paginate, acts_as_list, etc
+* You need to be able to *deploy even if everything is down*, except the production server :). If have vendored everything, you can still deploy form your local directory.
+* You want other people working on the project to *be able to quickly get started*
+
+So, basically, *you need vendoring most of the time*. There are several tools out there to help with this. Braid is the first one that was written especially to take advantage of git's power. Keep reading to see how easy braid makes things for you.
+
+h2. Using braid to manage dependencies in git
+
+Let's go through a simple scenario to see how easy braid makes dependency management by using a completely silly example. You will notice that braid commands are very simple and scarcely used. To make them stand out, they will be *highlighted*.
+
+The requirements are simple: we need to make an app that makes it clear that the hoff should not be hassled. Since this is a simple app, let's use "sinatra":http://sinatra.rubyforge.org/.
+
+Okay, let's start by initializing an empty git repository:
+
+ $ mkdir donthasslethehoff
+ $ cd donthasslethehoff
+ $ git init
+ Initialized empty Git repository in /Users/chelu/tmp/donthasslethehoff/.git/
+ $ echo donthasslethehoff > README
+ $ git add README
+ $ git commit -m "initial commit"
+ Created initial commit c6eeba4: initial commit
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+ create mode 100644 README
+
+To start, we'll *vendor sinatra using braid*:
+
+ $ braid add git://github.com/bmizerany/sinatra.git
+
+*This will simply create a normal commit* in your repository with all that is needed to make braid work. If someone clones your repository, they don't have to do anything. They don't need braid installed and don't even need to know you're using braid.
+
+You will now have sinatra in a directory inside your app. Let's add the code to display the message.
+
+ $ cat > hoff.rb
+ $:.unshift File.dirname(__FILE__) + '/sinatra/lib'
+ require 'sinatra'
+ get '/' do
+ "don't hassle the hoff"
+ end
+ ^D
+
+And, we're done. Let's try it out:
+
+ $ ruby hoff.rb
+
+Load up http://localhost:4567/ in a browser, and see that it worked. All ok? Go ahead and commit our changes:
+
+ $ git add .
+ $ git commit -m "not hassling the hoff"
+
+Now, the site looks good but, our app must make it *very clear* that the hoff should not be hassled! So, let's go ahead and change sinatra's console messages to be more clear about this. This is one of those *have to tweak a dependency* situations I mentioned earlier.
+
+So, go to sinatra/lib/sinatra.rb and search for the line that says: "has taken the stage". Add a new line just below it:
+
+ puts "Sinatra says: Remember folks. Don't hassle the Hoff!"
+
+Now we're talking. Everytime you start your sinatra app, you will be reminded not to hassle he hoff. Restart to see the new message and commit the change:
+
+ $ git add .
+ $ git commit -m "not hassling the hoff hack"
+
+You can now also *use the braid diff command to see all of your custom changes to sinatra*:
+
+ $ braid diff sinatra
+
+After a while, you will want to *use braid to update your sinatra mirror* to get bugfixes and new features. Just make sure you don't have any uncommitted local changes and run:
+
+ $ braid update sinatra
+
+This will bring you sinatra goodies and still leave your modifications in place. Under the hood, braid will do some tricks so that the power of git is leveraged to merge the changes in smoothly. Again, *the end result will be just a normal git commit*.
+
+h2. Thanks
+
+I hope this made it clear how easy and simple using braid is. You can find more examples on the "braid wiki":http://github.com/evilchelu/braid/wikis.
+
+You can file bugs and feature requests at the "*braid project on lighthouse*":http://evilchelu.lighthouseapp.com/projects/10600-braid. And there is also a google group for discussions and community support: "*braid-gem google group*":http://groups.google.com/group/braid-gem/.
+
+Braid is hosted on github at "http://github.com/evilchelu/braid/tree/master":http://github.com/evilchelu/braid/tree/master and we are always glad to receive patches and suggestions.

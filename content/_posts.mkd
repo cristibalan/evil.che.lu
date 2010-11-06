@@ -1,0 +1,119 @@
+# Go me!
+  2006-03-24
+  tags: mephisto
+  categories: happenings, home
+
+# myFeedz teaser
+  2006-03-26
+  tags: myfeedz, private beta, social newspaper
+  categories: happenings, home
+
+# Rails Day 2006
+  2006-06-23
+  tags: concourse, evilchelu, fullmoon, meeting planner, rails day 2006, technomancy
+  categories: development, home
+
+# Ugly no more
+  2006-06-28
+  tags: css, dc, design, mephisto, skittlish, xhtml
+  categories: development, home
+
+# Time to say goodbye
+  2006-09-06
+  tags: adobe, freelance, interakt, romania
+  categories: happenings, home
+
+# A New Bamboo beginning
+  2006-09-13
+  tags: freelance, new bamboo
+  categories: happenings, home
+
+# Skittlish 0.2 released
+  2006-09-13
+  tags: dc, design, evilchelu, mephisto, skittlish
+  categories: development, home
+
+# No more IE6 background flicker
+  2006-09-25
+  tags: css, dan popa, internet explorer, javascript
+  categories: development, home, sightings
+
+# Skittlish on a svn
+  2006-09-29
+  tags: mephisto, skittlish, svn
+  categories: development, home
+
+# CSS Naked (Half) Day
+  2007-04-05
+  tags: css, css naked day, naked
+  categories: development, home, standards
+
+# skittlish 0.4 release and sightseeing
+  2007-04-06
+  tags: skittlish, theme, trac, wordpress
+  categories: development, home
+
+# I can has new servar!
+  2007-05-13
+  tags: engine yard, jamie, mini, server
+  categories: happenings, home
+
+# Leaving svk for git
+  2007-08-14
+  tags: git, mephisto, scm, svk, svn
+  categories: development, home
+
+# Using git to track changes to mephisto
+  2007-08-14
+  tags: git, mephisto, scm, svk, svn
+  categories: development, home
+
+# This mephisto was impaled by vlad 1.0
+  2007-08-15
+  tags: capistrano, vlad
+  categories: development, home
+
+# ANN: giston - piston lookalike for git
+  2007-11-27
+  tags: giston, git, piston, ruby, svn
+  categories: development, home
+
+# ANN: giston 0.2.0
+  2008-01-18
+  tags: bdd, giston, git, piston, rspec, ruby, svn
+  categories: home
+
+# Giston update coming soon
+  2008-01-18
+  tags: giston, git, ruby, svn
+  categories: development, home
+
+# ANN: braid 0.3.0
+  2008-02-13
+  tags: bdd, braid, giston, git, piston, rspec, ruby, svn
+  categories: development, home
+
+# ANN: braid 0.3.2
+  2008-02-14
+  tags: bdd, braid, giston, git, piston, rspec, ruby, svn
+  categories: development, home
+
+# ANN: braid 0.4 - piston lookalike for git
+  2008-04-30
+  tags: bdd, braid, giston, git, piston, ruby, svn
+  categories: development, home
+
+# ANN: braid 0.5 - vendor your git and svn repositories
+  2008-10-29
+  slug: braid-0-5-vendor-your-git-and-svn-repositories
+  tags: bdd, braid, giston, git, piston, ruby, svn
+  categories: development, home
+
+# braid article on ruby advent
+  2008-12-20
+  tags: advent, braid, git, ruby, svn
+  categories: home, sightings
+
+# Easy dependency management for git with braid
+  2009-02-07
+

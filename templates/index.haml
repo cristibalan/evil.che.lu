@@ -1,0 +1,13 @@
+- @posts.reverse[0..4].each do |post|
+  .article
+    %h2.title= link_to post[:title], post[:url]
+    %p.meta
+      by Cristi Balan
+      on
+      = post[:written_on]
+    .body
+      = post[:content]
+
+%hr
+  See all posts in the
+  = link_to "archives", "/archives"

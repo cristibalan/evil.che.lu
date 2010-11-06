@@ -1,0 +1,34 @@
+If you got "braid":http://evil.che.lu/projects/braid from the git repository before 12:40GMT, please pull the latest changes.
+
+The 0.3.0 version has a bug where it will clone the mirrored svn repositories entierly. braid 0.3.1 just grabs the HEAD revision and this is significantly faster.
+
+h2. Changes
+
+BUGFIXES
+
+* braid was fetching entire repositories for svn mirros. changed to fetch only HEAD
+* workaround for stupid git svn behaviour. it is transforming all _ (underscores) into . (periods) in git svn remote branch names
+** braid now is replacing all _ with - preemtively
+
+BUGS
+
+* braid only works with a quite recent git (I'm using latest from the git git repo). I know that git 1.5.2 definitely doesn't work (git fetch is acting up). Not sure about versions in between.
+
+h2. Updating
+
+ cd braid
+ git pull
+ rake install_gem
+
+h2. Get it
+
+ git clone git://github.com/evilchelu/braid.git
+ cd braid
+ rake install_gem
+ braid --help # see usage
+
+h2. Sighseeing
+
+Mihai Anca has written a nice article showing some real world braid usage: "Installing rspec with braid":http://ropiku.wordpress.com/2008/02/04/installing-rspec-with-braid/
+
+He also helped track down the stupid bugs in the 0.3.0 release. I have beers already prepared.

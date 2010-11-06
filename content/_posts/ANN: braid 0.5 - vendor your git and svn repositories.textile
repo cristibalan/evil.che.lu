@@ -1,0 +1,34 @@
+"Braid":http://github.com/evilchelu/braid/wikis/home is a simple tool to help track git and svn vendor branches in a git repository.
+
+This is a major release that brings two main features (no more braid/track branch and better merging support) and lots of usability changes, bugfixes and tweaks.
+
+The "braid project page":http://github.com/evilchelu/braid/wikis/home has now moved to github, mainly because we wanted to use the wiki for documentation.
+
+Braid now also has a google group. If you have questions or ideas about braid, please subscribe to "http://groups.google.com/group/braid-gem":http://groups.google.com/group/braid-gem.
+
+h2. Installing
+
+ gem install braid
+
+h2. Important changes from 0.4
+
+* removed braid/track branch
+* use merge-recursive to allow changes from upstream to be automatically merged in
+* added local cache to workaround git fetch limitations
+
+h2. Other changes from 0.4
+
+* improved messages
+* refactoring all around
+* moved to test/spec from rspec
+* basic integration tests
+
+h2. Coming soon in braid 0.6
+
+* braid switch
+* braid format-patch
+* braid import
+* braid outdated
+* braid list
+* bash completion
+* possibly, windows compatibility
